@@ -8,4 +8,10 @@
     <PackageReference Include="MediatR" Version="3.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="RequestHandlers\" />
+    <Folder Include="Response\" />
+    <Folder Include="Request\" />
+  </ItemGroup>
+
 </Project>
