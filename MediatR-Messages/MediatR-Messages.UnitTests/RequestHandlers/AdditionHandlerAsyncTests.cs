@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System.Threading.Tasks;
+using FluentAssertions;
 using MediatR;
 using MediatRMessages.Request;
 using MediatRMessages.RequestHandlers;
@@ -7,7 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MediatRMessages.UnitTests.RequestHandlers
 {
-    public class AdditionHandlerTests
+    public class AdditionHandlerAsyncTests
     {
         [TestClass]
         public class ConstructorTests
@@ -15,11 +16,11 @@ namespace MediatRMessages.UnitTests.RequestHandlers
             [TestMethod]
             public void Inheritance()
             {
-                var handler =  new AdditionHandler();
+                var handlerAsync = new AdditionHandlerAsync();
 
-                handler.Should().NotBeNull();
-                handler.Should().BeAssignableTo<IRequestHandler<AdditionRequest, AdditionResponse>>();
-                handler.Should().BeOfType<AdditionHandler>();
+                handlerAsync.Should().NotBeNull();
+                handlerAsync.Should().BeAssignableTo<IAsyncRequestHandler<AdditionRequest, AdditionResponse>>();
+                handlerAsync.Should().BeOfType<AdditionHandlerAsync>();
             }
         }
 
@@ -27,24 +28,26 @@ namespace MediatRMessages.UnitTests.RequestHandlers
         public class MethodTests
         {
             [TestMethod]
-            public void Valid()
+            public async Task AsyncHandler()
             {
-                const int LEFT = 1;
-                const int RIGHT = 4;
+                const int LEFT = 2;
+                const int RIGHT = 2;
 
                 var request = new AdditionRequest(LEFT, RIGHT);
 
                 request.Should().NotBeNull();
 
-                var handler = new AdditionHandler();
+                var handlerAsync = new AdditionHandlerAsync();
 
-                handler.Should().NotBeNull();
+                handlerAsync.Should().NotBeNull();
 
-                var response = handler.Handle(request);
+                var response = await handlerAsync.Handle(request);
 
                 response.Should().NotBeNull();
+
                 response.Equation.Should().BeEquivalentTo($"{LEFT} + {RIGHT}");
-                response.Answer.ShouldBeEquivalentTo(5);
+                response.Answer.ShouldBeEquivalentTo(4);
+
             }
         }
     }
