@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using MediatR;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyModel;
 using Microsoft.Extensions.Logging;
 
-namespace MediatR_Messages.Api
+namespace MediatRMessages.Api
 {
     public class Startup
     {
@@ -25,6 +27,7 @@ namespace MediatR_Messages.Api
         {
             // Add framework services.
             services.AddMvc();
+            services.AddMediatR(DependencyContext.Default);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

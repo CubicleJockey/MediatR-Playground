@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MediatR_Messages.Api.Controllers
+namespace MediatRMessages.Api.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
