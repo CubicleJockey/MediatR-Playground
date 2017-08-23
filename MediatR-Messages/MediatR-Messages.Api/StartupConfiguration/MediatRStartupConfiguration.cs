@@ -1,6 +1,6 @@
 ﻿using MediatR;
+using MediatRMessages.RequestHandlers;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyModel;
 
 namespace MediatRMessages.Api.StartupConfiguration
 {
@@ -15,7 +15,7 @@ namespace MediatRMessages.Api.StartupConfiguration
         /// <param name="services">Service Collections</param>
         public static void Create(IServiceCollection services)
         {
-            services.AddMediatR(DependencyContext.Default);
+            services.AddMediatR(typeof(AdditionHandlerAsync));
         }
     }
 }
