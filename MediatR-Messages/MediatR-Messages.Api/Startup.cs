@@ -65,7 +65,6 @@ namespace MediatRMessages.Api
 
             app.UseSwaggerUI(config =>
             {
-                config.RoutePrefix = "swagger";
                 config.SwaggerEndpoint("/swagger/v1/swagger.json", "V1 Docs");
             });
         }
