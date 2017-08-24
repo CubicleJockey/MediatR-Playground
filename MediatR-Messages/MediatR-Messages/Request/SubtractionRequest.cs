@@ -8,7 +8,7 @@ namespace MediatRMessages.Request
     /// </summary>
     public class SubtractionRequest : BaseMathRequest, IRequest<MathResponse>
     {
-        public SubtractionRequest(int dividend, int divisor) : base(dividend, divisor) { }
+        public SubtractionRequest(int left, int right) : base(left, right) { }
 
         public override MathResponse Execute()
         {
