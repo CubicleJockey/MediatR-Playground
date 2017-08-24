@@ -33,9 +33,9 @@ namespace MediatRMessages.Api.Controllers
         /// <returns>Addition Response, which includes the SUM and other information.</returns>
         // GET api/values
         [HttpGet]
-        [Produces(typeof(Task<AdditionResponse>))]
-        [SwaggerResponse(200, Type = typeof(Task<AdditionResponse>))]
-        public Task<AdditionResponse> Get(int left, int right)
+        [Produces(typeof(Task<MathResponse>))]
+        [SwaggerResponse(200, Type = typeof(Task<MathResponse>))]
+        public Task<MathResponse> Get(int left, int right)
         {
             return mediator.Send(new AdditionRequest(left, right));
         }

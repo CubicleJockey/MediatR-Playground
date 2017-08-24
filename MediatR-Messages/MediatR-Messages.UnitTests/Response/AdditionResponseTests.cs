@@ -17,7 +17,7 @@ namespace MediatRMessages.UnitTests.Response
             [DataRow("   ")]
             public void EquationParameter_IsInvalid(string equation)
             {
-                Action ctor = () => new AdditionResponse(equation, 0);
+                Action ctor = () => new MathResponse(equation, 0);
                 ctor.ShouldThrow<ArgumentException>()
                     .WithMessage($"Cannot be empty.{Environment.NewLine}Parameter name: equation");
             }

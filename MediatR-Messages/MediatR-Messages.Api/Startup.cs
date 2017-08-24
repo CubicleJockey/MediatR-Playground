@@ -40,7 +40,7 @@ namespace MediatRMessages.Api
             // Add framework services.
             services.AddMvc();
             MediatRStartupConfiguration.Create(services);
-            SwaggerStartupConfiguration.Create(services);
+            SwaggerStartupConfiguration.ConfigureServices(services);
         }
 
         /// <summary>
@@ -56,14 +56,7 @@ namespace MediatRMessages.Api
 
             app.UseMvcWithDefaultRoute();
 
-            // Enable middleware to serve generated Swagger as a JSON endpoint.
-            app.UseSwagger();
-
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint
-            app.UseSwaggerUI(config =>
-            {
-                config.SwaggerEndpoint("/swagger/v1/swagger.json", "V1 Docs");
-            });
+            SwaggerStartupConfiguration.ConfigureApplication(app);
         }
     }
 }

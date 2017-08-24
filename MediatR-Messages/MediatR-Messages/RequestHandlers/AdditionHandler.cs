@@ -4,9 +4,9 @@ using MediatRMessages.Response;
 
 namespace MediatRMessages.RequestHandlers
 {
-    public class AdditionHandler : IRequestHandler<AdditionRequest, AdditionResponse>
+    public class AdditionHandler : IRequestHandler<AdditionRequest, MathResponse>
     {
-        public AdditionResponse Handle(AdditionRequest request)
+        public MathResponse Handle(AdditionRequest request)
         {
             return request.Execute();
         }

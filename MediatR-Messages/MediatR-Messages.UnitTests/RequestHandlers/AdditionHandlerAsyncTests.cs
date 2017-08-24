@@ -19,7 +19,7 @@ namespace MediatRMessages.UnitTests.RequestHandlers
                 var handlerAsync = new AdditionHandlerAsync();
 
                 handlerAsync.Should().NotBeNull();
-                handlerAsync.Should().BeAssignableTo<IAsyncRequestHandler<AdditionRequest, AdditionResponse>>();
+                handlerAsync.Should().BeAssignableTo<IAsyncRequestHandler<AdditionRequest, MathResponse>>();
                 handlerAsync.Should().BeOfType<AdditionHandlerAsync>();
             }
         }

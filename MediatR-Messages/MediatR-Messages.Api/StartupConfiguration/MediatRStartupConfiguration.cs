@@ -10,7 +10,7 @@ namespace MediatRMessages.Api.StartupConfiguration
     public static class MediatRStartupConfiguration
     {
         /// <summary>
-        /// Create the configurations for MediatR
+        /// ConfigureServices the configurations for MediatR
         /// </summary>
         /// <param name="services">Service Collections</param>
         public static void Create(IServiceCollection services)

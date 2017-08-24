@@ -18,7 +18,7 @@ namespace MediatRMessages.UnitTests.RequestHandlers
                 var handler =  new AdditionHandler();
 
                 handler.Should().NotBeNull();
-                handler.Should().BeAssignableTo<IRequestHandler<AdditionRequest, AdditionResponse>>();
+                handler.Should().BeAssignableTo<IRequestHandler<AdditionRequest, MathResponse>>();
                 handler.Should().BeOfType<AdditionHandler>();
             }
         }
