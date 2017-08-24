@@ -12,8 +12,8 @@ namespace MediatRMessages.Request
 
         public override MathResponse Execute()
         {
-            var answer = Left + Right;
-            return new MathResponse(ToString(), answer);
+            var sum = Left + Right;
+            return new MathResponse(ToString(), sum);
         }
 
         public override string ToString()

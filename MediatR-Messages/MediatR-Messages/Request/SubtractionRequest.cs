@@ -12,8 +12,8 @@ namespace MediatRMessages.Request
 
         public override MathResponse Execute()
         {
-            var answer = Left - Right;
-            return new MathResponse(ToString(), answer);
+            var difference = Left - Right;
+            return new MathResponse(ToString(), difference);
         }
 
         public override string ToString()
