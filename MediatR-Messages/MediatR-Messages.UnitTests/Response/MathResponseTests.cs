@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MediatRMessages.UnitTests.Response
 {
     
-    public class AdditionResponseTests
+    public class MathResponseTests
     {
         [TestClass]
         public class ConstructorTests

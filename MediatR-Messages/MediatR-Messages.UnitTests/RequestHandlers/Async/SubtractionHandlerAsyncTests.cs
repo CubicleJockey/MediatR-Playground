@@ -1,14 +1,17 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
 using FluentAssertions;
 using MediatR;
 using MediatRMessages.Request;
-using MediatRMessages.RequestHandlers;
+using MediatRMessages.RequestHandlers.Async;
 using MediatRMessages.Response;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MediatRMessages.UnitTests.RequestHandlers
+namespace MediatRMessages.UnitTests.RequestHandlers.Async
 {
-    public class AdditionHandlerAsyncTests
+    public class SubtractionHandlerAsyncTests
     {
         [TestClass]
         public class ConstructorTests
@@ -16,11 +19,11 @@ namespace MediatRMessages.UnitTests.RequestHandlers
             [TestMethod]
             public void Inheritance()
             {
-                var handlerAsync = new AdditionHandlerAsync();
+                var handlerAsync = new SubtractionHandlerAsync();
 
                 handlerAsync.Should().NotBeNull();
-                handlerAsync.Should().BeAssignableTo<IAsyncRequestHandler<AdditionRequest, MathResponse>>();
-                handlerAsync.Should().BeOfType<AdditionHandlerAsync>();
+                handlerAsync.Should().BeAssignableTo<IAsyncRequestHandler<SubtractionRequest, MathResponse>>();
+                handlerAsync.Should().BeOfType<SubtractionHandlerAsync>();
             }
         }
 
@@ -30,14 +33,14 @@ namespace MediatRMessages.UnitTests.RequestHandlers
             [TestMethod]
             public async Task AsyncHandler()
             {
-                const int LEFT = 2;
+                const int LEFT = 12;
                 const int RIGHT = 2;
 
-                var request = new AdditionRequest(LEFT, RIGHT);
+                var request = new SubtractionRequest(LEFT, RIGHT);
 
                 request.Should().NotBeNull();
 
-                var handlerAsync = new AdditionHandlerAsync();
+                var handlerAsync = new SubtractionHandlerAsync();
 
                 handlerAsync.Should().NotBeNull();
 
@@ -45,8 +48,8 @@ namespace MediatRMessages.UnitTests.RequestHandlers
 
                 response.Should().NotBeNull();
 
-                response.Equation.Should().BeEquivalentTo($"{LEFT} + {RIGHT}");
-                response.Answer.ShouldBeEquivalentTo(4);
+                response.Equation.Should().BeEquivalentTo($"{LEFT} - {RIGHT}");
+                response.Answer.ShouldBeEquivalentTo(10);
 
             }
         }

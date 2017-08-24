@@ -15,7 +15,7 @@ namespace MediatRMessages.Api.StartupConfiguration
         /// <param name="services">Service Collections</param>
         public static void Create(IServiceCollection services)
         {
-            services.AddMediatR(typeof(AdditionHandlerAsync));
+            services.AddMediatR(typeof(AdditionHandler));
         }
     }
 }

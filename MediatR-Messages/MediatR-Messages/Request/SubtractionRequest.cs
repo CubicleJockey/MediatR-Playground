@@ -3,6 +3,9 @@ using MediatRMessages.Response;
 
 namespace MediatRMessages.Request
 {
+    /// <summary>
+    /// https://en.wikipedia.org/wiki/Subtraction
+    /// </summary>
     public class SubtractionRequest : BaseMathRequest, IRequest<MathResponse>
     {
         public SubtractionRequest(int dividend, int divisor) : base(dividend, divisor) { }
