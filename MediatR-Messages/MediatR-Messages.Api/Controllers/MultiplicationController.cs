@@ -8,35 +8,35 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 namespace MediatRMessages.Api.Controllers
 {
     /// <summary>
-    /// Addition Controller
+    /// Multiplication Controller
     /// </summary>
     [Route("api/[controller]")]
     [Produces("application/json")]
-    public class AdditionController : Controller
+    public class MultiplicationController : Controller
     {
         private readonly IMediator mediator;
 
         /// <summary>
-        /// Addition Controller Ctor
+        /// Multiplication Controller Ctor
         /// </summary>
         /// <param name="mediator"></param>
-        public AdditionController(IMediator mediator)
+        public MultiplicationController(IMediator mediator)
         {
             this.mediator = mediator;
         }
 
         /// <summary>
-        /// Get Methods that takes two numbers and gets the sum.
+        /// Get Methods that takes two numbers and multiple them.
         /// </summary>
         /// <param name="left">Left hand side of the equation.</param>
         /// <param name="right">Right hand side of the equation.</param>
-        /// <returns>Math Response, which includes the SUM and other information.</returns>
+        /// <returns>Math Response, which includes the PRODUCT and other information.</returns>
         [HttpGet]
         [Produces(typeof(Task<MathResponse>))]
         [SwaggerResponse(200, Type = typeof(Task<MathResponse>))]
         public Task<MathResponse> Get(int left, int right)
         {
-            return mediator.Send(new AdditionRequest(left, right));
+            return mediator.Send(new MultiplicationRequest(left, right));
         }
     }
 }

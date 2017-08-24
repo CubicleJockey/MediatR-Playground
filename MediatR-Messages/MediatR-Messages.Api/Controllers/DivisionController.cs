@@ -8,11 +8,11 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 namespace MediatRMessages.Api.Controllers
 {
     /// <summary>
-    /// Addition Controller
+    /// Division Controller
     /// </summary>
     [Route("api/[controller]")]
     [Produces("application/json")]
-    public class AdditionController : Controller
+    public class DivisionController : Controller
     {
         private readonly IMediator mediator;
 
@@ -20,23 +20,23 @@ namespace MediatRMessages.Api.Controllers
         /// Addition Controller Ctor
         /// </summary>
         /// <param name="mediator"></param>
-        public AdditionController(IMediator mediator)
+        public DivisionController(IMediator mediator)
         {
             this.mediator = mediator;
         }
 
         /// <summary>
-        /// Get Methods that takes two numbers and gets the sum.
+        /// Get Methods that takes two numbers and division them.
         /// </summary>
-        /// <param name="left">Left hand side of the equation.</param>
-        /// <param name="right">Right hand side of the equation.</param>
-        /// <returns>Math Response, which includes the SUM and other information.</returns>
+        /// <param name="dividend">Left hand side of the equation.</param>
+        /// <param name="divisor">Right hand side of the equation.</param>
+        /// <returns>Math Response, which includes the quotient and other information.</returns>
         [HttpGet]
         [Produces(typeof(Task<MathResponse>))]
         [SwaggerResponse(200, Type = typeof(Task<MathResponse>))]
-        public Task<MathResponse> Get(int left, int right)
+        public Task<MathResponse> Get(int dividend, int divisor)
         {
-            return mediator.Send(new AdditionRequest(left, right));
+            return mediator.Send(new DivisionRequest(dividend, divisor));
         }
     }
 }
