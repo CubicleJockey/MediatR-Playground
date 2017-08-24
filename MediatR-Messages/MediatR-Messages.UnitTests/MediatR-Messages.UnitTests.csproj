@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MediatR-Messages.Api\MediatR-Messages.Api.csproj" />
     <ProjectReference Include="..\MediatR-Messages\MediatR-Messages.csproj" />
   </ItemGroup>
 

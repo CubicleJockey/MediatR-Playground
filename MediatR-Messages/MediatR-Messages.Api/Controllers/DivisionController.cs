@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using MediatR;
 using MediatRMessages.Request;
 using MediatRMessages.Response;
@@ -22,7 +23,7 @@ namespace MediatRMessages.Api.Controllers
         /// <param name="mediator"></param>
         public DivisionController(IMediator mediator)
         {
-            this.mediator = mediator;
+            this.mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
         /// <summary>
