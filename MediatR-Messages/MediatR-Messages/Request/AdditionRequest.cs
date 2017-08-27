@@ -8,12 +8,12 @@ namespace MediatRMessages.Request
     /// </summary>
     public class AdditionRequest : BaseMathRequest, IRequest<MathResponse>
     {
-        public AdditionRequest(int dividend, int divisor) : base(dividend, divisor) { }
+        public AdditionRequest(int left, int right) : base(left, right) { }
 
         public override MathResponse Execute()
         {
-            var answer = Left + Right;
-            return new MathResponse(ToString(), answer);
+            var sum = Left + Right;
+            return new MathResponse(ToString(), sum);
         }
 
         public override string ToString()

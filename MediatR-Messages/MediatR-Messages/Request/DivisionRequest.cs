@@ -11,7 +11,7 @@ namespace MediatRMessages.Request
     {
         public DivisionRequest(int dividend, int divisor) : base(dividend, divisor)
         {
-            if(divisor == 0) { throw new ArgumentException("Cannot divide by zero.", nameof(divisor));}
+            if(divisor == 0) { throw new ArgumentException("Cannot divide by zero.", nameof(divisor)); }
         }
 
         public override MathResponse Execute()

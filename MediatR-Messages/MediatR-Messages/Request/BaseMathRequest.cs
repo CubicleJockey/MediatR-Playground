@@ -7,10 +7,10 @@ namespace MediatRMessages.Request
         protected int Left { get; }
         protected int Right { get; }
 
-        protected BaseMathRequest(int dividend, int divisor)
+        protected BaseMathRequest(int left, int right)
         {
-            Left = dividend;
-            Right = divisor;
+            Left = left;
+            Right = right;
         }
 
         public abstract MathResponse Execute();
