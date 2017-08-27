@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
 namespace MediatRMessages.Api
@@ -14,14 +15,20 @@ namespace MediatRMessages.Api
         /// <param name="args"></param>
         public static void Main(string[] args)
         {
-            var host = new WebHostBuilder()
-                .UseKestrel()
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseIISIntegration()
-                .UseStartup<Startup>()
-                .Build();
-
+            var host = BuildWebHost(args);
             host.Run();
         }
+
+        /// <summary>
+        /// Builds the Web Host
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public static IWebHost BuildWebHost(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseKestrel()
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseStartup<Startup>()
+                .Build();
     }
 }
