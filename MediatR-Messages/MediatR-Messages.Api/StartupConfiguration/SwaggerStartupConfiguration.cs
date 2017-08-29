@@ -35,7 +35,7 @@ namespace MediatRMessages.Api.StartupConfiguration
                     }
                 );
 
-                var xmlDocFile = Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, @"MediatR-Messages.Api.xml");
+                var xmlDocFile = Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, "MediatR-Messages.Api.xml");
                 options.IncludeXmlComments(xmlDocFile);
                 options.DescribeAllEnumsAsStrings();
             });
